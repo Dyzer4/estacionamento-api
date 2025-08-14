@@ -21,22 +21,22 @@ public class Veiculos {
     @Column(nullable = false)
     private LocalDate dataEntrada;
 
-    @Column(nullable = false)
+    @Column
     private LocalTime horarioSaida;
 
-    @Column(nullable = false)
+    @Column
     private LocalDate dataSaida;
 
-    @Column(nullable = false)
+    @Column
     private String formaPag;
 
-    @Column(nullable = false)
-    private int valorPago;
+    @Column
+    private Integer valorPago;
 
     public Veiculos() {
     }
 
-    public Veiculos(String placa, LocalTime horarioEntrada, LocalDate dataEntrada, LocalTime horarioSaida, LocalDate dataSaida, String formaPag, int valorPago) {
+    public Veiculos(String placa, LocalTime horarioEntrada, LocalDate dataEntrada, LocalTime horarioSaida, LocalDate dataSaida, String formaPag, Integer valorPago) {
         this.placa = placa;
         this.horarioEntrada = horarioEntrada;
         this.dataEntrada = dataEntrada;
@@ -90,12 +90,13 @@ public class Veiculos {
         return dataSaida;
     }
 
+
     public void setDataSaida(LocalDate dataSaida) {
         this.dataSaida = dataSaida;
     }
 
     public String getFormaPag() {
-        return formaPag;
+        return formaPag != null ? formaPag : "--";
     }
 
     public void setFormaPag(String formaPag) {
@@ -103,10 +104,10 @@ public class Veiculos {
     }
 
     public int getValorPago() {
-        return valorPago;
+        return valorPago != null ? valorPago : 0;
     }
 
-    public void setValorPago(int valorPago) {
+    public void setValorPago(Integer valorPago) {
         this.valorPago = valorPago;
     }
 }

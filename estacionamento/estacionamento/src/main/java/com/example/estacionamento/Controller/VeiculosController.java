@@ -15,7 +15,7 @@ import java.util.List;
 public class VeiculosController {
 
     @Autowired
-    private VeiculosRepository veiculosRepository;  // Renomeei para 'veiculosRepository' para clareza
+    private VeiculosRepository veiculosRepository;
 
     @GetMapping
     public List<Veiculos> listarVeiculos() {
@@ -27,7 +27,7 @@ public class VeiculosController {
         return veiculosRepository.findById(id).orElse(null);
     }
 
-    @GetMapping("/placa/{placa}")
+    @GetMapping("/{placa}")
     public Veiculos pesquisarVeiculoPorPlaca(@PathVariable String placa) {
         return veiculosRepository.findByPlaca(placa).orElse(null);
     }
