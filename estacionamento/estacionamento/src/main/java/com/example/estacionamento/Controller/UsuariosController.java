@@ -3,10 +3,8 @@ package com.example.estacionamento.Controller;
 import com.example.estacionamento.Entity.Usuario;
 import com.example.estacionamento.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,16 +13,22 @@ import java.util.List;
 public class UsuariosController {
 
         @Autowired
-        public UsuarioRepository usuario;
+        public UsuarioRepository usuarioRepository;
         @GetMapping
         public List<Usuario> listarUsuario() {
-            return usuario.findAll();
+            return usuarioRepository.findAll();
         }
 
         @GetMapping("/{id}")
         public Usuario pesquisarUsuario(@PathVariable int id) {
-            return usuario.findById(id).orElse(null);
+            return usuarioRepository.findById(id).orElse(null);
         }
+
+    @PostMapping
+    public ResponseEntity<String> criarUsuario(@RequestBody Usuario usuario) {
+        usuarioRepository.save(usuario);
+        return ResponseEntity.ok("Usuário criado com sucesso.");
+    }
 }
 
 

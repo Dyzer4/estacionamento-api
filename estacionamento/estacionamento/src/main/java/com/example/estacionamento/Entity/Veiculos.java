@@ -95,15 +95,15 @@ public class Veiculos {
     }
 
     public String getFormaPag() {
-        return formaPag != null ? formaPag : "--";
+        return formaPag;
     }
 
     public void setFormaPag(String formaPag) {
         this.formaPag = formaPag;
     }
 
-    public int getValorPago() {
-        return valorPago != null ? valorPago : 0;
+    public Integer getValorPago() {
+        return valorPago;
     }
 
     public void setValorPago(Integer valorPago) {
