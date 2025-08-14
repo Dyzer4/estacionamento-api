@@ -90,7 +90,6 @@ public class Veiculos {
         return dataSaida;
     }
 
-
     public void setDataSaida(LocalDate dataSaida) {
         this.dataSaida = dataSaida;
     }
